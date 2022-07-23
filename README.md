@@ -26,7 +26,7 @@ Exterminator Extraordinaire: [Kurt Bixby](https://www.github.com/kurtbixby)
 Generator General: [Andrew Edwards](https://github.com/andrew87e)            
             
   ## Demo
-  See it in action on [GitHub](https://littletonjeffrey.github.io/Nookbook/)!
+  See it in action on [Heroku](https://nookbookv1.herokuapp.com/)!
   ## Contributing
   <details> 
   <summary>Contributor Covenant</summary>
