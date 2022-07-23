@@ -1,16 +1,17 @@
-const note = require('express').Router();
+const express = require('express');
+const note = express.note();
 const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
 // GET Route for retrieving the note
-note.get('/', (req, res) => {
+note.get('/notes', (req, res) => {
   console.info(`${req.method} request received for note`);
 
   readFromFile('./db/api.json').then((data) => res.json(JSON.parse(data)));
 });
 
 // POST Route for submitting feedback
-note.post('/', (req, res) => {
+note.post('/notes', (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to submit note`);
 
@@ -18,7 +19,7 @@ note.post('/', (req, res) => {
   const { title, text} = req.body;
 
   // If all the required properties are present
-  if (title && texte) {
+  if (req.body) {
     // Variable for the object we will save
     const newNote = {
       title,
