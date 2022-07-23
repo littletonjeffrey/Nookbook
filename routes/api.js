@@ -1,7 +1,8 @@
 const express = require('express');
 const route = express.Router();
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
+
 
 // GET Route for retrieving the note
 route.get('/notes', (req, res) => {
@@ -24,7 +25,7 @@ route.post('/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuid(),
+      id: uuid(),
     };
 
     readAndAppend(newNote, './db/db.json');
@@ -39,5 +40,24 @@ route.post('/notes', (req, res) => {
     res.json('Error in posting feedback');
   }
 });
+
+route.delete('/notes/:noteId', (req, res) => {
+    const { noteId } = req.params;
+       
+    readFromFile('./db/db.json').then((rawData) => {
+        let data = JSON.parse(rawData);
+        let index = 0;
+        for (; index < data.length; index++) {
+            const element = data[index];
+            console.log(element);
+            if (element.id == noteId) {
+                break;
+            }
+        }
+        data.splice(index, 1)
+        writeToFile('./db/db.json', data);
+        res.json(`Note ${noteId} deleted`);
+     })
+ });
 
 module.exports = route;
