@@ -1,17 +1,17 @@
 const express = require('express');
-const note = express.note();
+const route = express.Router();
 const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
 // GET Route for retrieving the note
-note.get('/notes', (req, res) => {
+route.get('/notes', (req, res) => {
   console.info(`${req.method} request received for note`);
 
-  readFromFile('./db/api.json').then((data) => res.json(JSON.parse(data)));
+  readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 // POST Route for submitting feedback
-note.post('/notes', (req, res) => {
+route.post('/notes', (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to submit note`);
 
@@ -40,4 +40,4 @@ note.post('/notes', (req, res) => {
   }
 });
 
-module.exports = note;
+module.exports = route;
