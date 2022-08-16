@@ -1,4 +1,6 @@
  # Nookbook™: A Note-taking Application
+  *coding bootcamp project
+  
   ![License: MIT](https://img.shields.io/static/v1?label=License&message=MIT&color=yellow&style=for-the-badge)<br>
   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
@@ -23,6 +25,7 @@
   ## Contributors
   
 Exterminator Extraordinaire: [Kurt Bixby](https://www.github.com/kurtbixby)
+
 Generator General: [Andrew Edwards](https://github.com/andrew87e)            
             
   ## Demo
@@ -174,4 +177,5 @@ For answers to common questions about this code of conduct, see the FAQ at
 
   ## Footnotes
   † aside from Nook Inc. who now owns your data forever
+  
   †† seriously, we'll still know
